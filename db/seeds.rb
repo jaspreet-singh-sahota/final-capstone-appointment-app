@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 Facility.create!(name: "Yoga by Mind.fit",
                 image_url: 'https://cdn-images.cure.fit/www-curefit-com/image/upload/fl_progressive,f_auto,q_auto:eco,w_485,ar_485:323,c_fit/dpr_2/v1/cult-media/v2web/workouts/1_id/PRODUCT_BNR_2020-02-04T13:19:29.014Z.png',
                 brief_description: "Physical, Mental & Emotional Well Being | Strength | Flexibility | Stress reduction | Endurance",
@@ -57,4 +48,4 @@ Facility.create!(name: "Workout",
                 annual_package: "270$"
 )
 
-p "Created #{Facility.count} movies"
+p "Seeding Completed"
