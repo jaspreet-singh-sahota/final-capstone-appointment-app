@@ -1,4 +1,6 @@
 class Facility < ApplicationRecord
+  has_many :appointments
+  has_many :users, through: :appointments
 
   validates :name, presence: true, uniqueness: true,
    length: { minimum: 2, maximum: 30 }
