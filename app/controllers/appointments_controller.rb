@@ -2,6 +2,11 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:create]
   before_action :cancel_appointment, only: [:destroy]
 
+  def index
+    appointments = current_user.appointments
+    render json: appointments
+  end
+
   def create
     if appointment
       render json: { status: :created, appointment: appointment }
