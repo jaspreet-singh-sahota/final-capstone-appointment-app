@@ -1,4 +1,4 @@
-class Api::V1::FacilitiesController < ApplicationController
+class  API::V1::FacilitiesController < ApplicationController
   def index
     facilities = Facility.all
     render json: facilities

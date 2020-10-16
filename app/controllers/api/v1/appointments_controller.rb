@@ -1,4 +1,4 @@
-class Api::V1::AppointmentsController < ApplicationController
+class  API::V1::AppointmentsController < ApplicationController
   include CurrentUserConcern
 
   def index
