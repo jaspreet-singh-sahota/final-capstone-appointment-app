@@ -10,6 +10,6 @@ Rails.application.routes.draw do
       get :get_appointment, to: 'appointments#index'
     end
   end
-root 'homepage#index'
+  root 'homepage#index'
   get '/*path' => 'homepage#index'
 end
