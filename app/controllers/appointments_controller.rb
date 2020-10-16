@@ -1,17 +1,18 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:create]
-  before_action :cancel_appointment, only: [:destroy]
+  include CurrentUserConcern
 
   def index
-    appointments = current_user.appointments
+    appointments = @current_user.appointments
     render json: appointments
   end
 
   def create
-    if appointment
-      render json: { status: :created, appointment: appointment }
+    set_appointment = @current_user.appointments.create!(facility_id: params[:appointment][:facility_id],
+     date: params[:appointment][:date], city: params[:appointment][:city])
+    if set_appointment
+      render json: { status: :created, appointment: set_appointment }
     else
-      appointment json: stack.errors
+      render json: stack.errors
     end
   end
 
@@ -21,11 +22,6 @@ class AppointmentsController < ApplicationController
   end
 
   private
-
-  def set_appointment
-    appointment = current_user.appointments.create!(facility_id: params[:facility_id],
-     date: params[:date], city: params[:city])
-  end
 
   def cancel_appointment
     @appointment = Appointment.find_by(user_id: current_user, facility_id: params[:facility_id])
