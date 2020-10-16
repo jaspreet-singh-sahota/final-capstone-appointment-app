@@ -1,4 +1,4 @@
-Facility.create!(name: "Yoga by Mind.fit",
+Facility.create!(name: "Yoga",
                 image_url: 'https://cdn-images.cure.fit/www-curefit-com/image/upload/fl_progressive,f_auto,q_auto:eco,w_485,ar_485:323,c_fit/dpr_2/v1/cult-media/v2web/workouts/1_id/PRODUCT_BNR_2020-02-04T13:19:29.014Z.png',
                 brief_description: "Physical, Mental & Emotional Well Being | Strength | Flexibility | Stress reduction | Endurance",
                 detailed_description: "Every class has an array of breathing techniques, a variety of asanas and meditation techniques. Helps in improving confidence & balance while gaining a stronger body in the process. ",
