@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get :logged_in, to: 'sessions#logged_in'
   post :set_appointment, to: 'appointments#create'
   get :get_appointment, to: 'appointments#index'
+  get '/*path' => 'homepage#index'
 end
