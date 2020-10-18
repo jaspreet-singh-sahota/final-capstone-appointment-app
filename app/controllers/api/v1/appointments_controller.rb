@@ -1,4 +1,4 @@
-class   Api::V1::AppointmentsController < ApplicationController
+class Api::V1::AppointmentsController < ApplicationController
   include CurrentUserConcern
 
   def index
@@ -8,7 +8,8 @@ class   Api::V1::AppointmentsController < ApplicationController
 
   def create
     set_appointment = @current_user.appointments.create!(facility_id: params[:appointment][:facility_id],
-     date: params[:appointment][:date], city: params[:appointment][:city])
+                                                         date: params[:appointment][:date],
+                                                         city: params[:appointment][:city])
     if set_appointment
       render json: { status: :created, appointment: set_appointment }
     else

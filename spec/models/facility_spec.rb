@@ -11,11 +11,13 @@ RSpec.describe Facility, type: :model do
     it { should validate_uniqueness_of(:name) }
     it { should validate_length_of(:name).is_at_least(2) }
     it { should validate_length_of(:name).is_at_most(30) }
-    it {should validate_length_of(:name).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:name).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
-    it {should validate_length_of(:name).is_at_most(30)
-      .with_short_message('is too long (maximum is 30 characters)')
+    it {
+      should validate_length_of(:name).is_at_most(30)
+        .with_short_message('is too long (maximum is 30 characters)')
     }
   end
 
@@ -23,8 +25,9 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:image_url) }
     it { should validate_uniqueness_of(:image_url) }
     it { should validate_length_of(:image_url).is_at_least(2) }
-    it {should validate_length_of(:image_url).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:image_url).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
   end
 
@@ -32,8 +35,9 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:brief_description) }
     it { should validate_uniqueness_of(:brief_description) }
     it { should validate_length_of(:brief_description).is_at_least(2) }
-    it {should validate_length_of(:brief_description).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:brief_description).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
   end
 
@@ -41,8 +45,9 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:detailed_description) }
     it { should validate_uniqueness_of(:detailed_description) }
     it { should validate_length_of(:detailed_description).is_at_least(2) }
-    it {should validate_length_of(:detailed_description).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:detailed_description).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
   end
 
@@ -50,11 +55,13 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:free_trial) }
     it { should validate_length_of(:free_trial).is_at_least(2) }
     it { should validate_length_of(:free_trial).is_at_most(20) }
-    it {should validate_length_of(:free_trial).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:free_trial).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
-    it {should validate_length_of(:free_trial).is_at_most(20)
-      .with_short_message('is too long (maximum is 20 characters)')
+    it {
+      should validate_length_of(:free_trial).is_at_most(20)
+        .with_short_message('is too long (maximum is 20 characters)')
     }
   end
 
@@ -62,11 +69,13 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:three_months_package) }
     it { should validate_length_of(:three_months_package).is_at_least(2) }
     it { should validate_length_of(:three_months_package).is_at_most(20) }
-    it {should validate_length_of(:three_months_package).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:three_months_package).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
-    it {should validate_length_of(:three_months_package).is_at_most(20)
-      .with_short_message('is too long (maximum is 20 characters)')
+    it {
+      should validate_length_of(:three_months_package).is_at_most(20)
+        .with_short_message('is too long (maximum is 20 characters)')
     }
   end
 
@@ -74,11 +83,13 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:six_months_package) }
     it { should validate_length_of(:six_months_package).is_at_least(2) }
     it { should validate_length_of(:six_months_package).is_at_most(20) }
-    it {should validate_length_of(:six_months_package).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:six_months_package).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
-    it {should validate_length_of(:six_months_package).is_at_most(20)
-      .with_short_message('is too long (maximum is 20 characters)')
+    it {
+      should validate_length_of(:six_months_package).is_at_most(20)
+        .with_short_message('is too long (maximum is 20 characters)')
     }
   end
 
@@ -86,11 +97,13 @@ RSpec.describe Facility, type: :model do
     it { should validate_presence_of(:annual_package) }
     it { should validate_length_of(:annual_package).is_at_least(2) }
     it { should validate_length_of(:annual_package).is_at_most(20) }
-    it {should validate_length_of(:annual_package).is_at_least(2)
-      .with_short_message('is too short (minimum is 2 characters)')
+    it {
+      should validate_length_of(:annual_package).is_at_least(2)
+        .with_short_message('is too short (minimum is 2 characters)')
     }
-    it {should validate_length_of(:annual_package).is_at_most(20)
-      .with_short_message('is too long (maximum is 20 characters)')
+    it {
+      should validate_length_of(:annual_package).is_at_most(20)
+        .with_short_message('is too long (maximum is 20 characters)')
     }
   end
 end
