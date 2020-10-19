@@ -1,33 +1,21 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authorized, only: %i[auto_login index]  
-  
-  def index
-    @users = User.all
-    render json: @users
-  end  
-  
-  def user_jobs
-    @user_jobs = logged_in_user.favorited_jobs
-    render json: @user_jobs
-  end  
-  # REGISTER
 
   def create
-    @user = User.create(user_params)
-    if @user.valid?
+    @user = User.new(user_params)
+    if @user.save
       token = encode_token({ user_id: @user.id })
-      render json: { user: @user, token: token }
+      render json: { status: :created, user: @user, token: token }
     else
-      render json: { error: @user.errors.full_messages[0] }
+      render json: { errors: @user.errors.full_messages }
     end
   end
   
-  # LOGGING IN
   def login
-    @user = User.find_by(username: params[:username])    
-    if @user&.authenticate(params[:password])
+    @user = User.find_by(username: params[:user][:username])    
+    if @user&.authenticate(params[:user][:password])
       token = encode_token({ user_id: @user.id })
-      render json: { user: @user, token: token }
+      render json: { user: @user, status: 'created', token: token }
     else
       render json: { error: 'Invalid Username or Password' }
     end
@@ -40,7 +28,6 @@ class Api::V1::UsersController < ApplicationController
   private  
   
   def user_params
-    params.permit(:username, :password, :email)
+    params.require(:user).permit(:username, :password, :email, :password_confirmation)
   end
 end
-
