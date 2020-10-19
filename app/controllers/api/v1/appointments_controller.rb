@@ -3,15 +3,15 @@ class Api::V1::AppointmentsController < ApplicationController
 
   def index
     @user = User.find_by(username: params[:appointment][:username])
-    appointments =  @user.appointments
+    appointments = @user.appointments
     render json: appointments
   end
 
   def create
     @user = User.find_by(username: params[:appointment][:username])
-    set_appointment =  @user.appointments.create!(facility_id: params[:appointment][:facility_id],
-                                                         date: params[:appointment][:date],
-                                                         city: params[:appointment][:city],)
+    set_appointment = @user.appointments.create!(facility_id: params[:appointment][:facility_id],
+                                                 date: params[:appointment][:date],
+                                                 city: params[:appointment][:city])
     if set_appointment
       render json: { status: :created, appointment: set_appointment }
     else
@@ -27,6 +27,6 @@ class Api::V1::AppointmentsController < ApplicationController
   private
 
   def cancel_appointment
-    @appointment = Appointment.find_by(user_id:  @user, facility_id: params[:facility_id])
+    @appointment = Appointment.find_by(user_id: @user, facility_id: params[:facility_id])
   end
 end
