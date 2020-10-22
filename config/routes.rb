@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create]
+      resources :authentication, only: [:create]
       resources :facilities, only: [:index]
-      post '/login', to: "users#login"
-      post :set_appointment, to: 'appointments#create'
-      post :call_appointment, to: 'appointments#index'
+      resources :appointments, only: [:index, :create]
+      post '/login', to: "authentication#login"
     end
   end
 end
