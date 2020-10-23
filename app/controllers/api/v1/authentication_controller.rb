@@ -5,9 +5,9 @@ class Api::V1::AuthenticationController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       token = encode_token({ user_id: @user.id })
-      render json: { status: 201, user: @user, token: token }
+      render json: { user: @user, token: token }, status: 201
     else
-      render json: { status: 401, errors: @user.errors.full_messages }
+      render json: { errors: @user.errors.full_messages }, status: 422
     end
   end
 
@@ -15,9 +15,9 @@ class Api::V1::AuthenticationController < ApplicationController
     @user = User.find_by(username: params[:user][:username])
     if @user&.authenticate(params[:user][:password])
       token = encode_token({ user_id: @user.id })
-      render json: { user: @user, status: 200, token: token }
+      render json: { user: @user, token: token }, status: 200
     else
-      render json: { status: 401, error: 'Invalid Username or Password' }
+      render json: { error: 'Invalid Username or Password' }, status: 401
     end
   end
 
