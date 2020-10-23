@@ -21,10 +21,6 @@ class Api::V1::AuthenticationController < ApplicationController
     end
   end
 
-  def auto_login
-    render json: @user
-  end
-
   private
 
   def user_params
